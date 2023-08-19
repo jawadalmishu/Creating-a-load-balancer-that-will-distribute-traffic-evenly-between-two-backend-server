@@ -689,7 +689,7 @@ now create a index.js file using vim editor, type this command
 vim index.js
 ```
 
-[[[]]]
+![index.js](img/101.png)
 
 copy and paste this code in the index.js file
 
@@ -713,7 +713,7 @@ app.listen(PORT, () => {
 
 now save and quit from vim editor
 
-[[[]]]
+![index.js](img/102.png)
 
 type this command to run index.js file
 
@@ -721,11 +721,14 @@ type this command to run index.js file
 sudo node index.js
 ```
 
+![index.js](img/103.png)
+
 Now we will check from vm-backend2 if our vm-backend1 is running or not. Open ssh terminal of vm-backend2 and type this command
 
 ```ruby
 curl 10.10.0.3
 ```
+![curl](img/104.png)
 
 it’s showing hello from backend1.
 
@@ -735,7 +738,7 @@ open the ssh terminal of vm-backend2 and type this command
 ```ruby
 sudo apt update -y
 ```
-[[[]]]
+![vm-backend2](img/105.png)
 
 now we will install node js in our vm-backend2, type this command
 
@@ -746,7 +749,7 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | bash - &&\
 apt-get install -y nodejs
 ```
 
-[[[]]]
+![node js](img/106.png)
 
 make a folder be2 and go to this folder and enable corepack
 
@@ -756,7 +759,7 @@ cd be2
 sudo corepack enable 
 ```
 
-[[[]]]
+![make dir](img/107.png)
 
 now type this command
 
@@ -764,7 +767,7 @@ now type this command
 npm init -y
 ```
 
-[[[]]]
+![node](img/108.png)
 
 install express using yarn
 
@@ -772,7 +775,7 @@ install express using yarn
 yarn add express
 ```
 
-[[[]]]
+![express](img/109.png)
 
 create a index.js file using vm editor
 
@@ -780,7 +783,7 @@ create a index.js file using vm editor
 vim index.js
 ```
 
-[[[]]]
+![index.js](img/110.png)
 
 copy and paste this code in index.js file
 
@@ -804,7 +807,7 @@ app.listen(PORT, () => {
 
 save and quit from vim editor
 
-[[[]]]
+![vim editor](img/111.png)
 
 now run index.js file
 
@@ -812,7 +815,7 @@ now run index.js file
 sudo node index.js
 ```
 
-[[[]]]
+![index.js](img/112.png)
 
 now we will check from vm-backend1 if vm-backend2 is running or not
 
@@ -824,7 +827,7 @@ curl 10.10.0.4
 
 here 10.10.0.4 is the private ip of vm-backend2
 
-[[[]]]
+![curl](img/113.png)
 
 it’s showing “Hello from backend 2"
 
