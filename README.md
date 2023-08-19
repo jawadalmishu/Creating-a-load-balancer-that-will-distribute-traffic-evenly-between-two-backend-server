@@ -527,7 +527,7 @@ sudo yarn preview --host --port 80
 It will open port 80 to listen any server.
 
 
-[[[vm-frontend terminal]]]
+![vm-frontend terminal](img/82.png)
 
 Now open ssh terminal of vm-loadbalancer and type this command.
 
@@ -536,7 +536,7 @@ sudo apt install -y telnet net-tools
 ```
 
 
-[[[vm-loadbalancer terminal]]]
+![vm-loadbalancer terminal](img/83.png)
 
 Now, type this command
 
@@ -547,7 +547,7 @@ curl 10.10.0.2
 Remember 10.10.0.2 is the private ip of vm-frontend. This is showing the html format of react app in the terminal.
 
 
-[[[vm-loadbalancer terminal]]]
+![vm-loadbalancer terminal](img/84.png)
 
 So we have successfully connected vm-frontend from vm-loadbalancer.
 
@@ -560,11 +560,11 @@ First go to /etc/nginx folder. Type this command
 cd /etc/nginx
 ```
 
-[[[]]]
+![nginx folder](img/85.png)
 
 Now we have to open the nginx.conf file using vim editor
 
-[[[]]]
+![nginx.conf](img/86.png)
 
 Type this command
 
@@ -572,14 +572,14 @@ Type this command
 sudo vim nginx.conf
 ```
 
-[[[]]]
+![nginx.conf](img/87.png)
 
-[[[]]]
+![nginx.conf](img/88.png)
 
 
 Now delete all the code in editor.
 
-[[[]]]
+![nginx.conf](img/89.png)
 
 
 Copy and paste this code in the editor. Then save and quit from vim editor.
@@ -609,26 +609,26 @@ http {
 
 In this configuration we are trying to bypass vm-frontend via vm-loadbalancer.
 
-[[[]]]
+![nginx.conf](img/90.png)
 
 Now save and quit
 
-[[[]]]
+![nginx.conf](img/91.png)
 
 
 reload server to change the config file
 
-[[[]]]
+![reload server](img/92.png)
 
 Now enter the vm-loadbalancer public ip(34.23.154.227, please see the figure , the ip is different because i have tried several times creating this vm, so it changes, you just insert your vm public ip) in the browser
 
 
-[[[browser]]]
+![browser](img/93.png)
 
 So successfully we have connected our frontend with load balancer.
 
 
-[[[Connecting frontend with loadbalancer]]]
+![Connecting frontend with loadbalancer](img/94.png)
 
 ## Step 6:
 In this step we will install express server in our two backend vm.
@@ -640,7 +640,7 @@ open the ssh terminal of vm-backend1 and type this command
 sudo apt update -y
 ```
 
-[[[]]]
+![backend1](img/95.png)
 
 Now we will install node js in our vm-backend1, type this command
 
@@ -651,11 +651,11 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | bash - &&\
 apt-get install -y nodejs
 ```
 
-[[[]]]
+![nodejs](img/96.png)
 
 now exit from super user.
 
-[[[]]]
+![super user](img/97.png)
 
 make a folder be1 and go to this folder
 
@@ -664,7 +664,7 @@ mkdir be1
 cd be1
 ```
 
-[[[]]]
+![make dir](img/98.png)
 
 enable corepack and type this command
 
@@ -673,14 +673,14 @@ sudo corepack enable
 npm init -y
 ```
 
-[[[]]]
+![corepack](img/99.png)
 
 now install express, type this command
 
 ```ruby
 yarn add express
 ```
-[[[]]]
+![installing express](img/100.png)
 
 
 now create a index.js file using vim editor, type this command
