@@ -924,7 +924,7 @@ cd our-frontend
 vim package.json
 ```
 
-[[[]]]
+![package.json](img/121.png)
 
 Now add this line in package.json file
 
@@ -935,7 +935,7 @@ Now add this line in package.json file
 See the line number 12. Here 34.23.45.253 is the public ip of load balancer
 
 
-[[[package.json]]]
+![package.json](img/122.png)
 
 save and quit package.json file. Now go to src folder and install axios
 
@@ -949,9 +949,9 @@ yarn add axios
 vim ApiComponent.tsx
 ```
 
-[[[]]]
+![axios](img/123.png)
 
-[[[]]]
+![apicomponent](img/124.png)
 
 copy and paste this code in ApiComponent.tsx file
 
@@ -987,7 +987,7 @@ export default ApiComponent;
 In this code we are calling load balancer using axios. now save and quit from vim editor
 
 
-[[[ApiComponent.tsx]]]
+![ApiComponent.tsx](img/125.png)
 
 Now open the App.tsx file
 
@@ -1015,9 +1015,9 @@ export default App;
 Save and quit this file
 
 
-[[[App.tsx]]]
+![App.tsx](img/126.png)
 
-[[[]]]
+![App.tsx](img/127.png)
 
 Now run and build again to save the changes
 
@@ -1025,13 +1025,15 @@ Now run and build again to save the changes
 yarn run build
 ```
 
+![build](img/128.png)
+
 now go to src folder
 
 ```ruby
 cd src
 ```
 
-[[[]]]
+![src folder](img/129.png)
 
 Type this command
 
@@ -1039,21 +1041,21 @@ Type this command
 sudo yarn preview --host --port 80
 ```
 
-[[[]]]
+![frontend](img/130.png)
 
-[[[]]]
+![frontend](img/131.png)
 
 Now open browser and enter the public ip of load balancer
 
-[[[]]]
+![loadbalancer](img/132.png)
 
 It’s showing Hello from backend 1. Reload this page again
 
-[[[]]]
+![loadbalancer](img/133.png)
 
 It’s showing Hello from backend 2.
 
 Finally we have done our project successfully.
 
 
-[[[Full diagram]]]
+![Full diagram](img/134.png)
