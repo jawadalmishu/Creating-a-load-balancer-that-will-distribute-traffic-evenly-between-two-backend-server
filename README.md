@@ -33,7 +33,8 @@ Modern load balancers often come with additional features such as health checks,
 
 ## Overview of the full diagram below:
 
-Full diagram
+![Full diagram](img/1.png)
+
 ## Prerequisite:
 - You will need GCP account
 - Knowledge about VM instance, Subnetting, Network interface.
@@ -41,44 +42,44 @@ Full diagram
 In this step we will create one VPC. First login into GCP. You will see dashboard like this
 
 
-[[[Google cloud playground dashboard]]]
+![Google cloud playground dashboard](img/2.png)
 
 Now, go to vpc nerwork option from left side and click on vpc network.
 
 
-[[[VPC network option(highlighted area)]]]
+![VPC network option(highlighted area)](img/3.png)
 
 Now click on create VPC Network(see the highlighted area).
 
 
-[[[vpc network creation]]]
+![vpc network creation](img/4.png)
 
 Now we will create our vpc. Give a vpc name(give name as your wish).
 
 
-[[[name of the vpc]]]
+![name of the vpc](img/5.png)
 
 Now scroll and go to the new subnet option, give a name for subnet(subnet-ja-1), select a region(us-east-1) and add ip range(i have given 10.10.0.0/24).
 
 
-[[[creating subnet]]]
+![creating subnet](img/6.png)
 
 Now, go to firewall option and select all firewall option. Remember this is just a hands on demo project that’s why we have selected all firewall option, you will not try this in production project.
 
 
-[[[Firewall option]]]
+![Firewall option](img/7.png)
 
 Now scroll down and click create button to create our fisrt vpc.
 
 
-[[[create button]]]
+![create button](img/8.png)
 
 Now see the vpc network chart, our vpc(vpc-ja-1) is listed there.
 
 
-[[[vpc-ja-1]]]
+![vpc-ja-1](img/9.png)
 
-[[[vpc-ja-1]]]
+![vpc-ja-1](img/10.png)
 
 ## Step 2:
 In this step we will create four vm under this vpc. One vm for frontend application and two vm for backend application and one vm for nginx load balancer server.
@@ -86,97 +87,99 @@ In this step we will create four vm under this vpc. One vm for frontend applicat
 Go to left hand menu. From Compute Engine click on vm instance option.
 
 
-[[[vm instance option]]]
+![vm instance option](img/11.png)
 
 Now click on create instance(see the highlighted area).
 
 
-[[[create instance]]]
+![create instance](img/12.png)
 
 ## 1st VM:
 Now we will create our first vm. Give a name to vm(give name as your wish), select a region(as we are creating this vm under the created vpc and our vpc is in the us-east1 region, so we will select us-east1 region), select zone(this is availability zone, i have selected us-east1-b, you can choose your own), select machine configuration(i have choosen E2, as it is low configuration and low cost, it’s a just hand’s on demo, so we don’t need any high configuration).
 
 
-[[[1st vm creation]]]
+![1st vm creation](img/13.png)
 
 We have to remember that our vm-frontend will not have any public ip. So, we should select external IPv4 address as none.
 
 
-[[[External ipv4]]]
+![External ipv4](img/14.png)
 
 Now, scroll down below to Firewall option and choose Allow HTTP traffic and Allow HTTPS traffic both options.
 
 
-[[[Firewall option]]]
+![Firewall option](img/15.png)
 
 Now go to Advance options, click on Networking option.
 
 
-[[[Advance option]]]
+![Advance option](img/16.png)
 
 Now go to network interface option select network(we will select vpc-ja-1), select subnetwork(i have selected subnet-ja-1).
 
 
-[[[Network interface]]]
+![Network interface](img/17.png)
 
 Now, scroll below and click on create button.
 
 
-[[[create button]]]
+![create button](img/18.png)
 
 Our first vm is created. See the figure below.
 
 
-[[[vm-frontend]]]
+![vm-frontend](img/19.png)
 
 Our 1st vm got the internel ip(private ip) of 10.10.0.2
 
 
-[[[vm-frontend]]]
+![vm-frontend](img/20.png)
 
 ## 2nd VM:
 Now we will create our backend1 vm for backend application.
 
 Now again click on create instance option.
 
+![create instance](img/21.png)
 
 Now we will create second vm. Give a name to vm(give name as your wish), select a region(as we are creating this vm under our vpc and our vpc is in the us-east1 region, so we will select us-east1 region), select zone(this is availability zone, i have selected us-east1-b, you can choose your own), select machine configuration(i have choosen E2, as it is low configuration and low cost, it’s a just hand’s on demo, so we don’t need any high configuration).
 
 
-[[[vm-backend1]]]
+![vm-backend1](img/22.png)
 
 We have to remember that our vm-backend1 will not have any public ip. So, we should select external IPv4 address as none.
 
 
-[[[external ipv4]]]
+![external ipv4](img/23.png)
 
 Now, scroll down below to Firewall option and choose Allow HTTP traffic and Allow HTTPS traffic both options.
 
 
-[[[Firewall option]]]
+![Firewall option](img/24.png)
 
 Now go to Advance options, click on Networking option.
 
 
-[[[Advance option]]]
+![Advance option](img/25.png)
 
 Now go to network interface option select network(we will select vpc-ja-1), select subnetwork(i have selected subnet-ja-1).
 
 
-[[[Network interface]]]
+![Network interface](img/26.png)
 
 Now, scroll below and click on create button.
 
 
-[[[Create button]]]
+![Create button](img/27.png)
 
 Our second vm(vm-backend2) is created. See the figure below.
 
+![vm-backend1](img/28.png)
 
 Our 2nd vm got the internel ip(private ip) of 10.10.0.3 and does not have any public ip.
 
 
-[[[vm-backend1]]]
+![vm-backend1](img/29.png)
 
 ## 3rd VM:
 Now we will create our backend2 vm for backend application.
@@ -184,44 +187,44 @@ Now we will create our backend2 vm for backend application.
 Now again click on create instance option.
 
 
-[[[create instance]]]
+![create instance](img/30.png)
 
 Now we will create third vm. Give a name to vm(give name as your wish), select a region(as we are creating this vm under our vpc and our vpc is in the us-east1 region, so we will select us-east1 region), select zone(this is availability zone, i have selected us-east1-b, you can choose your own), select machine configuration(i have choosen E2, as it is low configuration and low cost, it’s a just hand’s on demo, so we don’t need any high configuration).
 
 
-[[[vm-backend2]]]
+[vm-backend2](img/31.png)
 
 We have to remember that our vm-backend2 will not have any public ip. So, we should select external IPv4 address as none.
 
 
-[[[external ipv4]]]
+![external ipv4](img/32.png)
 
 Now, scroll down below to Firewall option and choose Allow HTTP traffic and Allow HTTPS traffic both options.
 
 
-[[[Firewall option]]]
+![Firewall option](img/33.png)
 
 Now go to Advance options, click on Networking option.
 
 
-[[[Advance option]]]
+![Advance option](img/34.png)
 
 Now go to network interface option select network(we will select vpc-ja-1), select subnetwork(i have selected subnet-ja-1).
 
 
-[[[Network interface]]]
+![Network interface](img/35.png)
 
 Now, scroll below and click on create button.
 
 
-[[[Create button]]]
+![Create button](img/36.png)
 
 Our third vm(vm-backend2) is created. See the figure below.
 
 
-[[[vm-backend2]]]
+![vm-backend2](img/37.png)
 
-[[[vm-backend2]]]
+![vm-backend2](img/38.png)
 
 ## 4th VM:
 Now we will create our load balancer vm for reverse proxy.
@@ -229,44 +232,44 @@ Now we will create our load balancer vm for reverse proxy.
 Now again click on create instance option.
 
 
-[[[create instance]]]
+![create instance](img/39.png)
 
 Now we will create fourth vm. Give a name to vm(give name as your wish), select a region(as we are creating this vm under our vpc and our vpc is in the us-east1 region, so we will select us-east1 region), select zone(this is availability zone, i have selected us-east1-b, you can choose your own), select machine configuration(i have choosen E2, as it is low configuration and low cost, it’s a just hand’s on demo, so we don’t need any high configuration).
 
 
-[[[4th vm]]]
+![4th vm](img/40.png)
 
 We have to remember that only our vm-loadbalancer will have public ip. So, we should select external IPv4 address as ephimeral.
 
 
-[[[external ipv4]]]
+![external ipv4](img/41.png)
 
 Now, scroll down below to Firewall option and choose Allow HTTP traffic and Allow HTTPS traffic both options.
 
 
-[[[Firewall option]]]
+![Firewall option](img/42.png)
 
 Now go to Advance options, click on Networking option.
 
 
-[[[Advance option]]]
+![Advance option](img/43.png)
 
 Now go to network interface option select network(we will select vpc-ja-1), select subnetwork(i have selected subnet-ja-1).
 
 
-[[[Network interface]]]
+![Network interface](img/44.png)
 
 Now, scroll below and click on create button.
 
 
-[[[Create button]]]
+![Create button](img/45.png)
 
 Our fourth vm(vm-loadbalancer) is created. See the figure below.
 
 
-[[[vm-loadbalancer]]]
+![vm-loadbalancer](img/46.png)
 
-[[[vm-loadbalancer]]]
+![vm-loadbalancer](img/47.png)
 
 ## Step 3:
 In this step we will install nginx in vm-loadbalancer(4th-vm) and also install a react application in our vm-frontend(1st-vm). Then we will try to connect load balancer vm with front end vm.
@@ -275,12 +278,12 @@ In this step we will install nginx in vm-loadbalancer(4th-vm) and also install a
 Open ssh terminal of vm-loadbalancer
 
 
-[[[vm-loadbalancer ssh terminal]]]
+![vm-loadbalancer ssh terminal](img/48.png)
 
 Authorize to open terminal.
 
 
-[[[Authorize]]]
+![Authorize](img/49.png)
 
 now type this command in ssh shell
 
@@ -288,7 +291,7 @@ now type this command in ssh shell
 sudo apt update -y
 ```
 
-[[[load balancer]]]
+![load balancer](img/50.png)
 
 It will update our applications. Now type this command.
 
@@ -296,17 +299,17 @@ It will update our applications. Now type this command.
 sudo apt install nginx -y
 ```
 
-[[[installing nginx]]]
+![installing nginx](img/51.png)
 
 Now copy the external ip of vm-loadbalancer and paste it in the browser url section and type enter button.
 
 
-[[[copy external ip]]]
+![copy external ip](img/52.png)
 
 You will see the welcome page from nginx server.
 
 
-[[[Nginx welcome page]]]
+![Nginx welcome page](img/53.png)
 
 So, we have successfully installed nginx.
 
@@ -314,12 +317,12 @@ So, we have successfully installed nginx.
 Open the vm-frontend ssh terminal.
 
 
-[[[ssh terminal]]]
+![ssh terminal](img/54.png)
 
 Click on authorize.
 
 
-[[[Authorize]]]
+![Authorize](img/55.png)
 
 Now in terminal type
 
@@ -330,7 +333,7 @@ sudo apt update -y
 It will show an error
 
 
-[[[Error]]]
+![Error](img/56.png)
 
 Because the vm-frontend does not have a public ip to connect outside vpc.
 
@@ -339,44 +342,44 @@ So, for this we need to create a NAT Gateway for this three vm(vm-frontend, vm-b
 Now search cloud nat in search bar and click on it.
 
 
-[[[Cloud NAT]]]
+![Cloud NAT](img/57.png)
 
 Click on Create cloud nat gateway to create nat gateway.
 
 
-[[[Create cloud nat gateway]]]
+![Create cloud nat gateway](img/58.png)
 
 Give a a name for nat gateway. Remember, to create nat gateway we need to create cloud router. Select cloud router network(vpc-ja-1), region(us-east1). Click on Create router.
 
 
-[[[Nat gateway]]]
+![Nat gateway](img/59.png)
 
 Click on create new router
 
 
-[[[create new router]]]
+[create new router](img/60.png)
 
 Give a name(router-ja). Click on create button.
 
 
-[[[Create router]]]
+![Create router](img/61.png)
 
 Router has been created.
 
 
-[[[Cloud router]]]
+![Cloud router](img/62.png)
 
 Now, click on create button.
 
 
-[[[cloud NAT]]]
+![cloud NAT](img/63.png)
 
 See the figure. Our cloud NAT is showing in the table.
 
 
-[[[nat gateway]]]
+![nat gateway](img/64.png)
 
-[[[NAT Gateway]]]
+![NAT Gateway](img/65.png)
 
 Now open vm-frontend ssh terminal again. Type this again
 
@@ -387,7 +390,7 @@ sudo apt update -y
 Now it will update.
 
 
-[[[vm-frontend]]]
+![vm-frontend](img/66.png)
 
 Type this to become super user.
 
@@ -395,7 +398,7 @@ Type this to become super user.
 sudo su
 ```
 
-[[[super user]]]
+![super user](img/67.png)
 
 Now we will have to install node js. Because to run a react application node js will be required. Type this command
 
@@ -405,12 +408,12 @@ apt-get install -y nodejs
 ```
 
 
-[[[Installing node js]]]
+![Installing node js](img/68.png)
 
 Type exit to logout from super user.
 
 
-[[[exit from super user]]]
+![exit from super user](img/69.png)
 
 We will check if node js is installed or not. Type this command
 
@@ -421,7 +424,7 @@ node -v
 Node js is installed successfully.
 
 
-[[[Node js version]]]
+![Node js version](img/70.png)
 
 Now we will check if yarn package manager is installed or not. Type this command
 
@@ -432,7 +435,7 @@ yarn -v
 It’s showing yarn is not installed.
 
 
-[[[yarn version]]]
+![yarn version](img/71.png)
 
 Actually yarn is installed but it’s not showing. We just have to enable corepack. Type this command.
 
@@ -441,7 +444,7 @@ sudo corepack enable
 ```
 
 
-[[[enabling corepack]]]
+![enabling corepack](img/72.png)
 
 Now again type this command.
 
@@ -452,7 +455,7 @@ yarn -v
 Now, yarn is showing version.
 
 
-[[[yarn version]]]
+![yarn version](img/73.png)
 
 Now we will create our react app using yarn package manager. Type this command.
 
@@ -461,19 +464,19 @@ yarn create vite
 ```
 
 
-[[[creating react-app]]]
+![creating react-app](img/74.png)
 
 Give a project name(i have given our-frontend) and click on enter button. Now choose react by using arrow key and type enter button.
 
 
-[[[react app]]]
+![react app](img/75.png)
 
 Now choose typescript+swc and click enter button.
 
 
-[[[typescript+swc]]]
+![typescript+swc](img/76.png)
 
-[[[react app]]]
+![react app](img/77.png)
 
 One react app has been created in a folder. This folder name is our-frontend(this is the react app name). Now go to this folder. Type this
 
@@ -483,17 +486,17 @@ cd our-frontend
 
 type ls in terminal and press enter button.
 
-[[[]]]
+![react app](img/78.png)
 
 we don’t have any node modules in our-frontend folder. To run a react app node modules libraries and packages are required. To install node modelues packages type yarn in terminal and press enter button.
 
 
-[[[installing node modules]]]
+![installing node modules](img/79.png)
 
 type ls in terminal, you will see node_modules folder.
 
 
-[[[node modules folder]]]
+![node modules folder](img/80.png)
 
 Now type this command to build our react app.
 
@@ -502,7 +505,7 @@ yarn run build
 ```
 
 
-[[[building react app]]]
+![building react app](img/81.png)
 
 so our react application has been built.
 
