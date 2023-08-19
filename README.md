@@ -837,9 +837,9 @@ In this step we will configure load balancer in such that we can excess backend 
 First run the two backend server
 
 
-[[[backend 1]]]
+![backend 1](img/114.png)
 
-[[[backend 2]]]
+![backend 2](img/115.png)
 
 Now open load balancer terminal and go to etc/nginx folder. Type this command
 
@@ -853,7 +853,7 @@ now open nginx.conf file
 sudo vim nginx.conf
 ```
 
-[[[]]]
+![nginx.conf](img/116.png)
 
 copy and paste this code in node.conf file
 
@@ -889,7 +889,7 @@ http {
 
 We are adding private ip of backend 1 and backend 2 in nginx.conf file
 
-[[[]]]
+![nginx.conf](img/117.png)
 
 now save and quit from vim editor and reload the nginx server to save the change of nginx.conf file
 
@@ -897,7 +897,7 @@ now save and quit from vim editor and reload the nginx server to save the change
 sudo nginx -s reload
 ```
 
-[[[]]]
+![nginx.conf](img/118.png)
 
 now go to browser and type
 
@@ -905,11 +905,11 @@ now go to browser and type
 34.23.45.253/api
 ```
 
-[[[]]]
+![browser](img/119.png)
 
 It’s showing backend 1. Now again reload the browser
 
-[[[]]]
+![browser](img/120.png)
 
 It’s showing from backend 2. So, nginx server is equally distributing traffic between the backend server.
 
